@@ -1,10 +1,11 @@
-const Discord = require("discord.js")
-const client = new Discord.Client()
-const PREFIX = "!"
+const Discord = require("discord.js");
+const XMLHttpRequest = require('xhr2');
+const client = new Discord.Client();
+const PREFIX = "!";
 
 client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}!`)
-})
+  console.log(`Logged in as ${client.user.tag}!`);
+});
 
 client.on("message", msg => {
   if (msg.content ===  PREFIX + "ping") {
@@ -16,13 +17,15 @@ client.on("message", msg => {
     xhr.open("GET", url);
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
-        if ((request.responseText).indexOf("\\u00a74Server not found.") != -1) {
+        if ((xhr.responseText).indexOf("\\u00a74Server not found.") != -1) {
           msg.reply("Server Offline.");
         } else {
           msg.reply("Server Online.");
-      }};
+        }
+      }
+    };
     xhr.send();
   }
-})
+});
 
-client.login(process.env.TOKEN)
+client.login(process.env.TOKEN);
