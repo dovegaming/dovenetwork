@@ -6,6 +6,7 @@ import re
 import googlesearch
 import wolfram
 import github
+import minecraft
 import string
 import sys
 HOST = "irc.libera.chat"
@@ -54,6 +55,7 @@ while 1:
         if msg.startswith("$github "):
             if tokens[1] == "url": send("PRIVMSG {} :https://github.com/{}/{}\r\n".format(CHANNEL, tokens[2], tokens[3]).encode("utf-8"))
             if tokens[1] == "issues": send("PRIVMSG {} :#{}: {}\r\n".format(CHANNEL, tokens[4], github.get_issue_title(tokens[2], tokens[3], tokens[4])).encode("utf-8"))
+        if msg == "$server": send("PRIVMSG {} :{}\r\n".format(CHANNEL, minecraft.get()).encode("utf-8"))
         if msg == "$help": send("PRIVMSG {} :Avalible commands: $hello, $ping, $youtube, $google, $github, $wolfram.\r\n".format(CHANNEL).encode("utf-8"))
         if msg.startswith("$help "):
             if tokens[1] == "hello": send("PRIVMSG {} :Syntax: $hello  Action: Says \"Hello!\".\r\n".format(CHANNEL).encode("utf-8"))
