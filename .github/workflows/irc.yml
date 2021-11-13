@@ -18,6 +18,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    # Checkout repository
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
     # Runs a single command using the runners shell
     - name: Start IRC
       run: echo "Starting IRC..." && ls && cd bots/irc && python3 main.py
