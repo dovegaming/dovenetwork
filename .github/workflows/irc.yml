@@ -20,4 +20,4 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Start IRC
-      run: cd bots/irc && ls && python3 main.py
+      run: echo "Starting IRC..." && ls && cd bots/irc && python3 main.py
