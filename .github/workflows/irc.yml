@@ -24,4 +24,4 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Start IRC
-      run: echo "Starting IRC..." && ls && cd bots/irc && python3 main.py
+      run: echo "Starting IRC..." && ls && cd runtime/bots/irc && python3 main.py
