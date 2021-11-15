@@ -11,7 +11,7 @@ HOST = "irc.libera.chat"
 PORT = 6667
 NICK = "DoveBot"
 #PASSWORD = os.getenv("PASSWORD")
-CHANNEL = "##BlockySurvival"
+CHANNEL = "#dovegaming"
 SERVER = ""
 readbuffer = ""
 def send(message):
