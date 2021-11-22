@@ -11,14 +11,15 @@ import string
 import sys
 HOST = "irc.libera.chat"
 PORT = 6667
-NICK = "BigBot"
+NICK = "DoveBot"
 #PASSWORD = os.getenv("PASSWORD")
-CHANNEL = "##BlockySurvival"
+CHANNEL = "#dovegaming"
 SERVER = ""
 readbuffer = ""
 def send(message):
     s.send(message)
     print(message)
+def post(message): send("PRIVMSG {} :{}\r\n".format(CHANNEL, message).encode("utf-8"))
 s = socket.socket()
 s.connect((HOST, PORT))
 send(bytes("NICK %s\r\n" % NICK, "UTF-8"))
